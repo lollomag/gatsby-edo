@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `https://be-edo.herokuapp.com/`,
+        apiURL: `https://be-edo.herokuapp.com`,
         queryLimit: 1000, // Defaults to 100
         collectionTypes: [`photo`],
         singleTypes: [`home-page`],
