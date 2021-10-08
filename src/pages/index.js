@@ -1,7 +1,9 @@
-import * as React from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
-// import { StaticImage } from "gatsby-plugin-image"
-import Plyr from 'plyr';
+// import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
+// import Plyr from 'plyr';
+import { Carousel } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from "../components/layout"
 
@@ -14,7 +16,14 @@ const IndexPage = ({ data }) => {
         <div className="home-video mb-80">
           {/* <div id="player" data-plyr-provider="vimeo" data-plyr-embed-id="529441048"></div> */}
         </div>
-        <div className="bio-carousel"></div>
+        <Carousel fade indicators={false}>
+          {data.strapiHomePage.photos.map((item, i) => {
+            return <Carousel.Item key={i}>
+              <img src={item.localFile.url}></img>
+              {/* <GatsbyImage image={item.localFile.url} alt="test"></GatsbyImage> */}
+            </Carousel.Item>
+          })}
+        </Carousel>
         <div className="fx-center-between mt-60">
           <div className="social-link">
             <a href="https://it.linkedin.com/in/edoardo-marcuzzi-46a347200" target="_blank" rel="noreferrer" className="social-item" title="Link open a new page on my linkedin account"><span
@@ -32,9 +41,6 @@ const IndexPage = ({ data }) => {
         </div>
       </div>
       <p className="vimeo">{data.strapiHomePage.vimeoId}</p>
-      {data.strapiHomePage.photos.map((item, i) => {
-        return <img key={i} src={item.localFile.url} alt="test" />
-      })}
 
       <p>
         <Link to="/page-2/">Go to page 2</Link> <br />
