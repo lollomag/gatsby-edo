@@ -1,46 +1,41 @@
 import React from "react"
 import { graphql } from "gatsby"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'photoswipe/dist/photoswipe.css'
-import 'photoswipe/dist/default-skin/default-skin.css'
 
-import { Gallery, Item } from 'react-photoswipe-gallery'
+import LightGallery from 'lightgallery/react';
+
+// import styles
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+
+
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom';
+
+
 import Layout from "../components/layout"
 
 const PhotoPage = ({ data }) => {
   console.log(data);
-
-  const galleryOptions = {
-    shareEl: false,
-  }
-
+  const onInit = () => {
+    console.log('lightGallery has been initialized');
+};
   return (
     <Layout>
       <div className="container">
-        <div class="gallery-wrapper">
-          <div class="section-title">Photography</div>
-          <div class="filter-wrapper photo">
+        <div className="gallery-wrapper">
+          <div className="section-title">Photography</div>
+          <div className="filter-wrapper photo">
 
           </div>
-          <Gallery options={galleryOptions}>
-            <div className="row photoswipe-gallery">
-              {data.allStrapiPhoto.edges.map((item, i) => {
-                return <div className="col-md-4" key={i}>
-                  {/* <img src={item.node.image.url} alt=""></img> */}
-                  <Item
-                    original={item.node.image.url}
-                    thumbnail={item.node.image.url}
-                    width="80%"
-                    height="768"
-                  >
-                    {({ ref, open }) => (
-                      <img ref={ref} onClick={open} src={item.node.image.url} />
-                    )}
-                  </Item>
-                </div>
-              })}
-            </div>
-          </Gallery>
+          <LightGallery onInit={onInit} speed={500} plugins={[lgThumbnail, lgZoom]} elementClassNames="row custom-gallery">
+            {data.allStrapiPhoto.edges.map((item, i) => {
+              return <a data-lg-size="1406-1390" className="gallery-item col-md-4" data-src={item.node.image.url}>
+                  <img className="img-responsive" src={item.node.image.url} />
+                </a>
+            })}
+          </LightGallery>
+          
         </div>
       </div>
     </Layout>

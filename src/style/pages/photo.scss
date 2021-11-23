@@ -1,17 +1,7 @@
-.photoswipe-gallery {
+.custom-gallery {
   img {
     cursor: pointer;
     aspect-ratio: 16/9;
     object-fit: cover;
   }
-}
-
-.pswp__img {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 85%;
-  height: auto !important;
-  max-height: 90%;
-  object-fit: contain;
 }
