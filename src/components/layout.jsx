@@ -23,14 +23,14 @@ const Layout = ({ children }) => {
     }
   `)
 
-  return (
-    <>
-      <div className="body-item">
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <main className="l-main page">{children}</main>
-      </div>
-    </>
-  )
+    return (
+      <>
+        <div className="body-item">
+          <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+          <main className="l-main page">{children}</main>
+        </div>
+      </>
+    )
 }
 
 Layout.propTypes = {

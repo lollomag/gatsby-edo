@@ -30,9 +30,9 @@ const PhotoPage = ({ data }) => {
           </div>
           <LightGallery onInit={onInit} speed={500} plugins={[lgThumbnail, lgZoom]} elementClassNames="row custom-gallery">
             {data.allStrapiPhoto.edges.map((item, i) => {
-              return <a data-lg-size="1406-1390" className="gallery-item col-md-4" data-src={item.node.image.url}>
-                  <img className="img-responsive" src={item.node.image.url} />
-                </a>
+              return <button data-lg-size="1406-1390" className="gallery-item col-md-4" data-src={item.node.image.url}>
+                  <img className="img-responsive" src={item.node.image.url} alt=""/>
+                </button>
             })}
           </LightGallery>
           
