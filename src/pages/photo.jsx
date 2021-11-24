@@ -26,13 +26,17 @@ const PhotoPage = ({ data }) => {
         <div className="gallery-wrapper">
           <div className="section-title">Photography</div>
           <div className="filter-wrapper photo">
-
+            {data.allStrapiFilterPhotos.edges.map(item => {
+              return <div class="filter-item">{item.filterName}</div>
+            })}
           </div>
           <LightGallery onInit={onInit} speed={500} plugins={[lgThumbnail, lgZoom]} elementClassNames="row custom-gallery">
-            {data.allStrapiPhoto.edges.map((item, i) => {
-              return <button data-lg-size="1406-1390" className="gallery-item col-md-4" data-src={item.node.image.url}>
-                  <img className="img-responsive" src={item.node.image.url} alt=""/>
-                </button>
+            {data.allStrapiPhoto.edges.map(item => {
+              return <React.Fragment key={item.node.image.id}>
+                  <button data-lg-size="1406-1390" className="gallery-item col-md-4" data-src={item.node.image.url}>
+                    <img className="img-responsive" src={item.node.image.url} alt=""/>
+                  </button>
+                </React.Fragment>
             })}
           </LightGallery>
           
@@ -51,7 +55,16 @@ export const pageQuery = graphql`
         node {
           image {
             url
+            id
           }
+        }
+      }
+    }
+    allStrapiFilterPhotos {
+      edges {
+        node {
+          filterName
+          id
         }
       }
     }

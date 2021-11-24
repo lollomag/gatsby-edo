@@ -37,7 +37,7 @@ module.exports = {
       options: {
         apiURL: `https://be-edo.herokuapp.com`,
         queryLimit: 1000, // Defaults to 100
-        collectionTypes: [`photo`],
+        collectionTypes: [`photo`, 'filter-photos'],
         singleTypes: [`home-page`],
       },
     },
