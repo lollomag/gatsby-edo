@@ -281,11 +281,12 @@ main {
     border-radius: 15px;
     padding: 3px 10px;
     text-transform: capitalize;
+    color: white;
     cursor: pointer;
 
     &:hover, &.active {
       background-color: white;
-      color: #3E4B96;
+      color: #000;
     }
 
     & + .filter-item {
