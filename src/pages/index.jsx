@@ -1,32 +1,30 @@
-import React, { useEffect, useRef} from "react"
+import React from "react"
 import { graphql } from "gatsby"
-// import Plyr from "plyr-react";
-// import "plyr-react/dist/plyr.css";
+import Plyr from "plyr-react";
+import "plyr-react/dist/plyr.css";
 import { Carousel } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from "../components/layout"
 
 const IndexPage = ({ data }) => {
-  console.log(data);
-  // const ref = useRef()
-  // useEffect(() => console.log(ref.current.plyr))
+  const isBrowser = typeof window !== "undefined"
   
-  // const videoSrc = {
-  //   type: "video",
-  //   sources: [
-  //     {
-  //       src: data.strapiHomePage.vimeoId,
-  //       provider: "vimeo"
-  //     }
-  //   ]
-  // };
+  const videoSrc = {
+    type: "video",
+    sources: [
+      {
+        src: data.strapiHomePage.vimeoId,
+        provider: "vimeo"
+      }
+    ]
+  };
 
   return (
     <Layout>
       <div className="container">
         <div className="home-video mb-80">
-          {/* <Plyr ref={ref} source={videoSrc} /> */}
+          {isBrowser && <Plyr source={videoSrc} />}
         </div>
         <Carousel fade indicators={false}>
           {data.strapiHomePage.photos.map((item, i) => {
