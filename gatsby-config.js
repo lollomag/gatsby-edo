@@ -33,6 +33,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'material icons outlined',
+          'roboto:300,400,500,700',
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `https://be-edo.herokuapp.com`,
