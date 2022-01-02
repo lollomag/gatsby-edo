@@ -1,16 +1,15 @@
-import React from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { graphql } from "gatsby"
 import Plyr from "plyr-react";
 import "plyr-react/dist/plyr.css";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import Layout from "../components/layout"
-import { useState } from "react";
 
 const CinemaPage = ({ data }) => {
   const isBrowser = typeof window !== "undefined"
   const [videoList, setVideoList] = useState(data.allStrapiCinemaVideos.nodes)
-  
+
   const videoSrc = {
     type: "video",
     sources: [
@@ -25,8 +24,8 @@ const CinemaPage = ({ data }) => {
     return string.replace(/\s+/g, '')
   }
 
-  function filterVideos(filter) {
-    const newList = videoList.filter(item => item.filter_video.filter_name === filter);
+  const filterVideos = (filter) => {
+    const newList = data.allStrapiCinemaVideos.nodes.filter(item => item.filter_video.filter_name === filter);
     setVideoList(newList);
   }
   
@@ -37,7 +36,7 @@ const CinemaPage = ({ data }) => {
         <div className="main-video-cinema">
           <div className="row">
             <div className="col-12 col-md-6">
-              {isBrowser && <Plyr source={videoSrc} />}
+              {isBrowser && <Plyr source={videoSrc}/>}
             </div>
             <div className="col-12 col-md-6">
               <h2 className="title">titolo</h2>
@@ -53,7 +52,7 @@ const CinemaPage = ({ data }) => {
         <div className="row mt-30" id="modal-videos">
           {videoList.map(video => (
             <React.Fragment key={video.title}>
-            <div className="col-12 col-md-4 mt-30" data-filter={removeSpaces(video.filter_video.filter_name)}>
+            <div className="col-12 col-md-4 mt-30">
               <div className="simple-video">
                 <a data-toggle="modal" data-target="#modal-video" data-id={video.id} className="preview">
                   <img src={video.cover.url} alt="" />
