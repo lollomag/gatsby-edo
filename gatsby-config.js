@@ -47,7 +47,7 @@ module.exports = {
         apiURL: `https://be-edo.herokuapp.com`,
         queryLimit: 1000, // Defaults to 100
         collectionTypes: [`photo`, 'filter-photos', 'cinema-videos', 'filter-videos'],
-        singleTypes: [`home-page`],
+        singleTypes: [`home-page`, 'about'],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

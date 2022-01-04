@@ -1,0 +1,64 @@
+.bio-home {
+  font-size: 16px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 18px;
+  }
+
+  .presenting-video {
+    margin-bottom: 30px;
+
+    @include media-breakpoint-up(md) {
+      max-width: 65%;
+      width: 100%;
+      float: right;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      max-width: 50%;
+      padding-left: 40px;
+    }
+  }
+
+  img {
+    max-width: 50%;
+    margin: 20px auto;
+    display: block;
+
+    @include media-breakpoint-up(md) {
+      max-width: 35%;
+      margin: 0;
+      margin-left: 15px;
+    }
+  }
+}
+
+.other-image {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  img {
+    max-width: 100%;
+    object-fit: contain;
+
+    @include media-breakpoint-up(sm) {
+      max-width: 48%;
+    }
+
+    @include media-breakpoint-up(md) {
+      max-width: 24%;
+    }
+
+    &+img {
+      margin-top: 30px;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 0;
+      }
+    }
+  }
+}

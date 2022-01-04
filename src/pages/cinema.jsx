@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import { graphql } from "gatsby"
 import Plyr from "plyr-react";
+import ReactPlayer from 'react-player'
 import "plyr-react/dist/plyr.css";
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -36,7 +37,7 @@ const CinemaPage = ({ data }) => {
         <div className="main-video-cinema">
           <div className="row">
             <div className="col-12 col-md-6">
-              {isBrowser && <Plyr source={videoSrc}/>}
+              <ReactPlayer className="player" url='https://player.vimeo.com/video/529441048' playing controls light width="100%" height="100%"/>
             </div>
             <div className="col-12 col-md-6">
               <h2 className="title">titolo</h2>
