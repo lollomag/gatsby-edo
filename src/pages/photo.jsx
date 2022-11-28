@@ -36,7 +36,7 @@ const PhotoPage = ({ data }) => {
 
   useEffect(() => {
     galleryInstance?.refresh();
-  }, [photoList]);
+  }, [photoList, galleryInstance]);
 
   return (
     <Layout>

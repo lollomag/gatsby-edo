@@ -49,7 +49,7 @@ const Header = ({ siteTitle }) => {
               alt="my logo"
             ></img>
           </a>
-          <span role="button" tabIndex="-1" className="hamburger-mobile material-icons-outlined" onClick={toggleMobile}>menu</span>
+          <button type="button" tabIndex="-1" className="hamburger-mobile material-icons-outlined" onClick={toggleMobile}>menu</button>
         </div>
         <div className={isOpen ? 'mobile-navigation show' : 'mobile-navigation'}>
           <nav> 

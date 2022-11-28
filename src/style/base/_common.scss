@@ -294,3 +294,18 @@ main {
     }
   }
 }
+
+.main-video-cinema {
+  margin-top: 50px;
+
+  .title {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-top: 20px;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+    }
+  }
+}
