@@ -1,0 +1,136 @@
+.modal {
+  .modal-dialog {
+    max-width: 900px;
+
+    @include media-breakpoint-up(xl) {
+      max-width: 1200px;
+    }
+  }
+
+  .modal-content {
+    background-color: transparent;
+    color: $white;
+  }
+
+  .modal-header {
+    border: 0;
+    padding: 0 15px;
+
+  }
+
+  .close {
+    color: $white;
+    margin-left: auto;
+
+    span {
+      font-size: 40px;
+    }
+  }
+
+  &.modal-video {
+    .modal-body {
+      .player {
+        width: 100%;
+        min-height: 300px;
+        aspect-ratio: 16/9;
+
+        @include media-breakpoint-up(md) {
+          min-height: 400px;
+        }
+
+        @include media-breakpoint-up(lg) {
+          min-height: 500px;
+        }
+
+        @include media-breakpoint-up(xl) {
+          min-height: 600px;
+        }
+      }
+      iframe {
+        width: 100%;
+        min-height: 300px;
+        aspect-ratio: 16/9;
+
+        @include media-breakpoint-up(md) {
+          min-height: 400px;
+        }
+
+        @include media-breakpoint-up(lg) {
+          min-height: 500px;
+        }
+
+        @include media-breakpoint-up(xl) {
+          min-height: 600px;
+        }
+      }
+
+      .vimeo-video {
+        width: 100%;
+        min-height: 300px;
+
+        @include media-breakpoint-up(md) {
+          min-height: 400px;
+        }
+
+        @include media-breakpoint-up(lg) {
+          min-height: 500px;
+        }
+
+        @include media-breakpoint-up(xl) {
+          min-height: 600px;
+        }
+      }
+    }
+  }
+
+  .email-success {
+    max-width: 600px;
+    .modal-content {
+      background-color: white;
+      color: black;
+
+      .close {
+        font-size: 30px;
+        color: black;
+      }
+
+      .modal-header {
+        padding: 15px;
+      }
+
+      .modal-body {
+        padding: 0 15px 35px;
+      }
+
+      .ok-icon {
+        font-size: 70px;
+        color: green;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 1.2;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      font-size: 40px;
+    }
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 30px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 18px;
+    }
+  }
+}
+
+.modal-backdrop.show {
+  opacity: .95;
+}
