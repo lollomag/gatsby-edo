@@ -8,6 +8,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import "bootstrap-icons/font/bootstrap-icons.css"
 
 import Header from "./header/header"
 import "./layout.scss"
