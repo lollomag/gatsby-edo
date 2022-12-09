@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import ReactPlayer from "react-player"
 import "plyr-react/dist/plyr.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/dist/js/bootstrap.bundle"
+// import "bootstrap/dist/js/bootstrap.bundle"
 
 import Layout from "../components/layout"
 import ModalVideo from "../components/modal/modal-video"
