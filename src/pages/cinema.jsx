@@ -1,10 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-// import Plyr from "plyr-react";
 import ReactPlayer from "react-player"
 import "plyr-react/dist/plyr.css"
-import "bootstrap/dist/css/bootstrap.min.css"
-// import "bootstrap/dist/js/bootstrap.bundle"
 
 import Layout from "../components/layout"
 import ModalVideo from "../components/modal/modal-video"
@@ -14,6 +11,7 @@ const CinemaPage = ({ data }) => {
   const [videoList, setVideoList] = useState(data.allStrapiCinemaVideos.nodes)
   const [activefilter, setActiveFilter] = useState("")
   const [videoShown, setVideoShown] = useState();
+  const [modalStatus, setModalStatus] = useState(false);
 
   const mainVideoBanner = {
     vimeoId:
@@ -22,8 +20,6 @@ const CinemaPage = ({ data }) => {
     title: data.allStrapiCinemaMainVideo.nodes[0].title,
     description: data.allStrapiCinemaMainVideo.nodes.description,
   }
-
-  console.log(data)
 
   function removeSpaces(string) {
     return string.replace(/\s+/g, "")
@@ -38,8 +34,8 @@ const CinemaPage = ({ data }) => {
   }
 
   const openModal = video => {
-    console.log('lll', video);
     setVideoShown(video);
+    setModalStatus(true)
   }
 
   return (
@@ -113,7 +109,7 @@ const CinemaPage = ({ data }) => {
           </div>
         </div>
       </Layout>
-      <ModalVideo data={videoShown}/>
+      <ModalVideo data={videoShown} status={modalStatus} statusEvent={setModalStatus}/>
     </>
   )
 }

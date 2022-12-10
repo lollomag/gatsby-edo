@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from "../components/layout"
 
 const AboutPage = ({ data }) => {
-console.log(data);
 function creaCodiceHtml() {
   return {__html: data.strapiAbout.biography};
 }

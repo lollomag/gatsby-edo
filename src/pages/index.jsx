@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Plyr from "plyr-react"
 import "plyr-react/dist/plyr.css"
 import { Carousel } from "react-bootstrap"
-import "bootstrap/dist/css/bootstrap.min.css"
 
 import Layout from "../components/layout"
 
@@ -80,7 +79,7 @@ const IndexPage = ({ data }) => {
             rel="noreferrer"
           >
             <span className="btn-text">Download my CV</span>
-            <i className="bi bi-download"></i>
+            <i className="bi bi-file-earmark-pdf"></i>
           </a>
         </div>
       </div>
